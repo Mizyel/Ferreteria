@@ -1,0 +1,54 @@
+
+ORM: El mapeo objeto-relacional es una técnica de programación
+para convertir datos entre el sistema de tipos utilizado en un lenguaje
+de programación orientado a objetos y la utilización de una base de datos
+relacional como motor de persistencia
+
+-en la base de datos las tablas es importante ponerle una "s" al final
+-el id es de todas las tablas
+-en 4 lineas de codigo hace el crud completo desde el controlador
+-
+---------------------------------------------------------------------
+creación documento en composer
+
+en la carpeta www de laragon
+1.Se crea un carpeta parecido al entorno: composer create-project laravel/laravel nombre
+2. ingresamos a la carpeta creada
+3. ejecutamos en la consola: php artisan serve
+
+estructura MVC, en la carpeta app está ubicada la carpeta models,
+en la carpeta https está ubicada el controller, la vistas son el frontend, el programa las busca en public, pero están
+ubicados en resources, pero no es necesario sacar las carpetas de vista de dónde están ubicadas
+
+ne public van todas las carpetas publicas, 
+
+laravel corre las migrasiones por fechas de creación (tener en cuenta)
+
+factories: es un patrón de diseño, problemas comunes a la hora de desarrollar software
+
+rutas en el putno entre el frontend y el backend
+lo primero que hay que hacer es conectar la base de datos y despues hacer la migración
+
+-para correr migrasiones ejecutamos: php artisan migrate (si no existe laravel la crea)
+-para crear un modelo con migración,controllers los controladores deben tener fabrica, resours y seeder : php artisan make:model Producto -cmrfs
+-para ver las listas:  php artisan route:list
+-------------------------------------------------------------------------------------------
+controlador inicioC.php
+
+<?php
+
+namespace App\Http\Controllers;
+use App\Http\Controllers\Controller;
+
+class inicioC extends Controller
+{
+    public function saludar($nombre)
+    {
+        /*
+        LOGICA BACK
+        CRUD
+         */
+        // echo "Hola {$nombre} te estamos saludando desde el controlador 👋🏻";
+        return view('inicio',['nombre' => $nombre]);
+    }
+}
